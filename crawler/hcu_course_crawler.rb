@@ -59,7 +59,7 @@ class HsuanChuangUniversityCrawler
         code: "#{@year + 1911}-#{@term}-#{data[1]}-?(#{data[2]})?",
         # general_code: data[2],    # 選課代碼
         # url: syllabus_url,    # 課程大綱之類的連結(內容為HTML，這是一個要POST的)
-        required: data[12],    # 必修或選修
+        required: data[12].include?('必'),    # 必修或選修
         department: data[0] + "#{data[5].scan(/[單雙]/)[0]}",    # 開課系所
         # note: note,
         day_1: course_days[0],
